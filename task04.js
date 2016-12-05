@@ -92,17 +92,32 @@ function task_4_2_1() {
 
 /* 3. Создать объект поля морской  бой (10*10)
 и заполнить его кораблями
-Написать функцию, которая будет по координатим (x,y) проверять попадание в цель */
+Написать функцию, которая будет по координатам (x,y) проверять попадание в цель */
 function task_4_3() { 
-//    var sea = {};
-//    var sea2 = {};
-//    for (var i = 1; i <= 10; i++) {
-//        for (var j = 1; j <= 10; j++) {
-//            sea[i] = sea2[j]
-//        }    
-//    };
-//    console.log(sea)
-}
+    var x = parseInt(prompt('Введите первую координату'));
+    var y = parseInt(prompt('Введите вторую координату'));
+    var sea = [[0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+               [0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+               [0, 0, 0, 0, 1, 0, 0, 1, 0, 0],
+               [0, 0, 0, 0, 1, 0, 0, 1, 0, 0],
+               [0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+               [1, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+               [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+               [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+               [0, 0, 0, 1, 1, 1, 0, 1, 0, 0],
+               [0, 0, 1, 0, 0, 0, 0, 0, 1, 0],];
+    
+    function findShip(x,y) {
+        if (x > 9 || y > 9 || x < 0 || y < 0) {
+            return console.log('Вы вышли за пределы поля')
+        } else if (sea[x][y] == 1) {
+            return console.log('Попал')
+        } else {
+            return console.log('Мимо')
+        }
+    } 
+    findShip(x,y)
+};
 
 //Задачи 4 - Смартфон
 
@@ -136,8 +151,7 @@ function task_4_4() {
         }
         usedram=120;
         for (i=0;i<smart.active.length;i++){
-            j=smart.active[i];
-            //j????
+            j=smart.active[i];            
             usedram+=smart['apps'][j].ram;
         }
         console.log('Модель:' +smart.name+' \nЖесткий диск: '+usedhdd+'/'+smart.hdd+'\nПотребление памяти: '+usedram+'/'+smart.ram);
@@ -206,14 +220,16 @@ function task_4_5_3() {
 };
 
 
-
-
-
 //Задачи 6 - Рекурсия
 
 //6.1 Разложить число на простые множители в порядке возрастания и с учетом кратности
 
-
+//var a = prompt('Введите число');
+//function rec(a) {
+//
+//}
+//        
+        
 
 
 
@@ -222,7 +238,21 @@ function task_4_5_3() {
 Дано слово, состоящее только из строчных латинских букв. Проверьте, является ли это слово палиндромом. Выведите YES или NO. 
 radar – yes
 Yes - no */
-
-
-
-
+function task_4_6_2() {
+    var a = prompt('Введите слово');
+    function rec(a) {
+        if (a.length == 1) {
+            return console.log('YES')
+        } else {
+            if (a[0] == a[a.length-1]) {
+                if (a.length == 2) {
+                    return console.log('YES');
+                };            
+                return rec(a.substring(1, a.length-1))
+            } else {
+                return console.log('NO')
+            }
+        }    
+    };
+    rec(a)
+}
