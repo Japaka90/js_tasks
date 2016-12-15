@@ -51,26 +51,35 @@ function task_7_2() {
     } 
 }
 
-function task_7_3() {
-    var green = parseInt(prompt('Установите сколько секунд должен гореть зелёный свет'))*1000;
-    var red = parseInt(prompt('Установите сколько секунд должен гореть красный свет'))*1000;
-    time = green + red + 1000;
-    console.log(green, red, time)
-    var light = document.getElementsByClassName('light');
-   
-    var intervalID = setInterval(function(){ myTimer() }, time);
-    
-    function myTimer() {
-        setTimeout(function() {
-            setTimeout(function() {
-                    setTimeout(function() {
-                        setTimeout(function() {
-                        light[0].style.backgroundColor = 'yellow'}, red);
-                    light[0].style.backgroundColor = 'red'}, 500);
-                light[0].style.backgroundColor = 'yellow'}, green);
-            light[0].style.backgroundColor = 'green'}, 500)
-        };               
-}
+
+var red_time_input = document.querySelector('#red_light_input');
+var green_time_input = document.querySelector('#green_light_input'); 
+var go_light = document.querySelector('#task_7_3'); 
+var red = document.querySelector('.red_light');
+var yellow = document.querySelector('.yellow_light');
+var green = document.querySelector('.green_light');
+
+go_light.addEventListener('click', ligth)
+                    
+function ligth(){
+    if (red_time_input.value == '' || green_time_input.value == '') {
+        console.log("Введите время для красного и зелёного сигнала светофора (в секундах)")
+    } else {function go_light() {
+        red.style.backgroundColor = 'red'        
+        setTimeout(function(){red.style.backgroundColor = 'grey'}, parseInt(red_time_input.value)*1000);
+        setTimeout(function(){yellow.style.backgroundColor = 'yellow'}, parseInt(red_time_input.value)*1000);
+        setTimeout(function(){yellow.style.backgroundColor = 'grey'}, parseInt(red_time_input.value)*1000+1000);
+        setTimeout(function(){green.style.backgroundColor = 'green'}, parseInt(red_time_input.value)*1000+1000);        
+        setTimeout(function(){green.style.backgroundColor = 'grey'}, parseInt(red_time_input.value)*1000+1000+parseInt(green_time_input.value)*1000)        
+    }
+    go_light();
+    function interval_light() {
+    setInterval(go_light, parseInt(red_time_input.value)*1000+1000+parseInt(green_time_input.value)*1000)
+    }
+   interval_light()
+}}
+
+
 
 
 

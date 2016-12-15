@@ -236,7 +236,7 @@
      
      
 <!--     </section>-->
-     <hr>
+<!--     <hr>-->
      
      <section>
          <h2>Задание № 6 (Регулярные выражения)</h2>
@@ -301,6 +301,7 @@
          
     </section>
     <hr>
+    
     <section>
         <h2>Задание № 7</h2>
         <div>
@@ -308,8 +309,7 @@
             <p>Сделать select-option, заполненный при помощи JS, в котором можно выбирать несколько вариантов</p>
              <input value="Задача 7.1" onclick="task_7_1()" type="button">  
              <div class="select_option"></div>
-        </div>
-        
+        </div>        
         <div>
             <h3>Задача 2</h3>
             <p>Сделать страницу светофор, которая мелькает желтым цветом или постепенно зажигается и затухает</p>
@@ -320,25 +320,84 @@
         <div>
             <h3>Задача 3</h3>
             <p>Сделать pеальный светофор, для которого можно задать время зеленого и красного света</p>
+            
+            <input type="text" placeholder="Введите время для красного светофора (в секундах)" id="red_light_input">
+            <input type="text" placeholder="Введите время для зелёного светофора (в секундах)" id="green_light_input">
 
             <style>  
                 .light {
-                    height: 100px; 
-                    width: 100px; 
-                    border-radius: 50px; 
-                    background-color: green;
-                    margin: 10px
-                }       
+                    height: 168px; 
+                    width: 70px;                      
+                    background-color: black;
+                    margin: 10px;
+                    border-radius: 15%;
+                    padding-top: 3px;
+                }   
+                
+                .red_light,
+                .yellow_light,
+                .green_light {
+                    height: 50px; 
+                    width: 50px; 
+                    border-radius: 50%; 
+                    background-color: grey;
+                    margin: auto;
+                    margin-top: 3px;
+                }
+                
+                #red_light_input,
+                #green_light_input {
+                    width: 330px;
+                    display: block;
+                    margin-bottom: 10px
+                }
+                
             </style>
             
-            <div class="light"></div>
+            <div class="light">
+                <div class="red_light"></div>
+                <div class="yellow_light"></div>
+                <div class="green_light"></div>
+            </div>
             
-             <input value="Задача 7.3" onclick="task_7_3()" type="button">  
+             <input value="Включить светофор" id="task_7_3" type="button">               
              <div class="select_option"></div>
         </div>
     </section>
-  
-  
+      <hr>
+
+    <section>
+        <h2>Задание № 8</h2>
+        <div>
+            <h3>Задача 1</h3>
+            <p>Написать обработчик используя this, который меняет фон элемента, по которому прошел клик. Цвета сменяются поочередно. (Не менее 7 цветов в наборе) <br> Повесить обработчик на все выбранные элементы (&#60p&#62 &#60/div&#62). Элементы должны быть вложены друг в друга</p>
+
+            <style>
+            form,  form * {
+            margin: 10px;
+            border: 1px solid blue;
+            }
+            </style>
+
+            <form style="background-color:white">FORM
+            <div id='div1' style="background-color:white">DIV
+            <div id='div2' style="background-color:white">DIV2
+            <div id='div3' style="background-color:white">DIV3
+            <p id='p' style="background-color:white">P</p>
+            </div>
+            </div>
+            </div>    
+            </form>            
+        </div>
+        
+        <div>
+            <h3>Задача 2</h3>
+            <p>Сделать обработчики погружения, которые модифицирует обработчики всплытия при установленной галочке в checkbox. <br>!!!Вывод только обработчиками всплытия!!! <br> По умолчанию: Привет из (элемент) <br> При галочке: (элемент) говорит тебя прощай <br> Скрипт не должен "ломаться" </p>
+             
+        </div>
+        
+        
+    </section>
   
   
   
@@ -356,6 +415,6 @@
     <script type='text/javascript' src="task04.js"></script>
     <script type='text/javascript' src="task06.js"></script>
     <script type='text/javascript' src="task07.js"></script>
-<!--    <script type='text/javascript' src="task08.js"></script>-->
+    <script type='text/javascript' src="task08.js"></script>
 </body>
 </html>

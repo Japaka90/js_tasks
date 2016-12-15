@@ -2,7 +2,7 @@
 /* Проверить адрес почты, если он может содержать только латинские символы, _ и цифры. При этом должен располагаться на домене mail.ru или gmail.com */
 function task_6_1() {
     var str = prompt('Введите адрес почты');
-    var reg = /^[\w]{1,}(\@(g?)mail.ru)$/ig.test(str);
+    var reg = /^[\w]{1,}(\@(mail.ru|gmail.com))$/ig.test(str);
     if (reg == false) {
         console.log('Вы ввели недопустимый адрес почты')
     } else {
